@@ -2,10 +2,8 @@
 # Import Tkinter, Python's GUI library , sys and random which has some other useful features
 from tkinter import *
 
-
 import sys
 import random
-
 
 # this code uses class Guess, for ease of design where functions can be placed and called
 
@@ -21,15 +19,12 @@ class Guess():
         root.configure(background='black')
         root.resizable(width=800, height=600)
 
-
         # Here the code, adds two menu bar items to the GUI, including a feature to start a new game, or quit
 
         menubar = Menu(root)
         root.config(menu=menubar)
         menubar.add_command(label="New Game",command=self.MainMenu)
         menubar.add_command(label="Quit!",command=self.quitATM)
-
-
 
     ########################################### main menu GUI #################################################
 
@@ -39,7 +34,6 @@ class Guess():
         self.label= Label(root, text="Welcome to the Python Guessing Game",fg="white",bg="black",font="bold")
 
         self.newGame_button= Button(root, text="New Game",fg="white",bg="black",activebackground="white",command=self.newGame)
-
 
     ############# ##############################Game page GUI settings##################################################
 
@@ -58,30 +52,24 @@ class Guess():
 
         self.okbutton= Button(root, text="ok",fg="white",bg="black",command=self.error_return)
 
-
      ######################################## Warmer/ messages #########################################################
 
         # These labels are styling and specifying the message a user will recieve if he or she
         # enters an incorrect/correct value, as well as provide tips to when the user is close to the answer.
         # these will later be gridded and made visible to the user.
 
-
         self.warmerH=Label(root,text="Getting warmer, just a bit higher",font="bold",fg="white",bg="black")
         self.warmerL=Label(root,text="Getting warmer, just a bit lower",font="bold",fg="white",bg="black")
-
         self.very_warmH=Label (root,text="Getting very warm, just a bit higher",font="bold",fg="white",bg="black")
         self.very_warmL=Label (root,text="Getting very warm, just a bit lower",font="bold",fg="white",bg="black")
         self.hotH=Label(root,text="Getting HOT, just a bit higher",font="bold",fg="white",bg="black")
         self.hotL=Label(root,text="Getting HOT, just a bit lower",font="bold",fg="white",bg="black")
-
         self.generalH=Label (root, text="Incorrect, try a little bit higher",font="bold",fg="white",bg="black")
         self.generalL=Label (root, text="Incorrect, try a little bit lower",font="bold",fg="white",bg="black")
-
         self.win= Label (root,text="Congratulations you guessed correctly",font="bold",fg="white",bg="black")
 
     #####################################################################################################################
         #here the code calls the MainMenu function to get the GUI started properly
-
         self.MainMenu()
     #####################################################################################################################
 
@@ -149,7 +137,6 @@ class Guess():
         self.submit.grid(row=3,column=1,padx=(10, 10),pady=(10,10))
         self.submit.config( height = 2, width = 10)
 
-
     def newGame(self):
 
         # when the newgame function is called , it first removes all formatting in the GUI window, by calling the
@@ -194,7 +181,6 @@ class Guess():
         input=(self.newGame_input.get())
         self.submit.grid(row=3,column=1,padx=(10, 10),pady=(10,10))
         self.submit.config( height = 2, width = 10)
-
 
     def newGame_return (self):
 
@@ -282,7 +268,6 @@ class Guess():
                 self.okbutton.config( height = 2, width = 10)
                 self.newGame_input.delete(0, "end")
 
-
             elif input==Number-1 :
                 self.RemoveAll()
                 root.geometry("300x100")
@@ -311,7 +296,6 @@ class Guess():
                 self.okbutton.grid (row=3,column=2)
                 self.okbutton.config( height = 2, width = 10)
 
-
             elif input<Number:
                 self.RemoveAll()
                 #root.geometry("300x100")
@@ -322,7 +306,6 @@ class Guess():
                 self.okbutton.config( height = 2, width = 10)
 
             else:
-                print ("quit ya galah")
                 self.newGame_input.delete(0, "end")
         #these errors make sure that syntax of user input is correct, if not, it displays a seperate screen, that can
         #return the user back to the game while, not generating a new random number.
